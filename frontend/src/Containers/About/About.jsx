@@ -2,33 +2,44 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 import { images } from '../../Constants'
+import { urlFor, client } from '../../client'
 
 import './about.scss'
 
-const abouts = [
-  {
-    title: 'Web Development',
-    description: 'I am a good Web Developer',
-    imgUrl: images.about01
-  },
-  {
-    title: 'Web Design',
-    description: 'I am a good Web Developer',
-    imgUrl: images.about02
-  },
-  {
-    title: 'UI/UX',
-    description: 'I am a good Web Developer',
-    imgUrl: images.about03
-  },
-  {
-    title: 'Web Animations',
-    description: 'I am a good Web Developer',
-    imgUrl: images.about04
-  },
-]
+// const abouts = [
+//   {
+//     title: 'Web Development',
+//     description: 'I am a good Web Developer',
+//     imgUrl: images.about01
+//   },
+//   {
+//     title: 'Web Design',
+//     description: 'I am a good Web Developer',
+//     imgUrl: images.about02
+//   },
+//   {
+//     title: 'UI/UX',
+//     description: 'I am a good Web Developer',
+//     imgUrl: images.about03
+//   },
+//   {
+//     title: 'Web Animations',
+//     description: 'I am a good Web Developer',
+//     imgUrl: images.about04
+//   },
+// ]
 
 const About = () => {
+  const [ abouts, setAbouts ]= useState([])
+
+  useEffect(() => {
+    const query = '*[_type == "abouts"]'
+    client.fetch(query)
+      .then((data) => setAbouts(data));
+  }, [])
+
+  console.log(abouts)
+
   return (
    <>
       <h2 className = 'head-text'>I Know that <span>Good Development </span><br/>Means <span>Good Business </span> 
@@ -44,7 +55,7 @@ const About = () => {
                 className = 'app__profile-item'
                 key = {about.title + index}
               >
-                  <img src = {about.imgUrl} alt = {about.title} />
+                  <img src = {urlFor(about.imgUrl)} alt = {about.title} />
                   <h2 className = 'bold-text' style = {{marginTop: 20}}>{about.title}</h2>
                   <p className = 'p-text' style = {{marginTop: 10}}>{about.description}</p>
               </motion.div>

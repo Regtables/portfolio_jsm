@@ -35,6 +35,7 @@ const Footer = () => {
         setIsFormSubmitted(true)
       })
   }
+  
   return (
     <>
         <h2 className = 'head-text'>Have a Coffe and Chat with Me</h2>

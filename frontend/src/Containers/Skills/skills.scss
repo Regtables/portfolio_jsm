@@ -13,6 +13,7 @@
   @media screen and (max-width: 900px) {
     width: 100%;
     flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -86,17 +87,29 @@
   flex-direction: column;
 
   @media screen and (max-width: 900px) {
+    width: 100%;
     margin-top: 2rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 }
 
 .app__skills-exp-item{
   display: flex;
-  width: 100%;
+  // width: 100%;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   margin: 1rem 0;
+
+  @media screen and (max-width: 900px) {
+    width: 50% ;
+  }
+
+  @media screen and (max-width: 450px) {
+    justify-content: center;
+  }
 }
 
 .app__skills-exp-works{
@@ -109,6 +122,7 @@
     align-items: flex-start;
     margin-bottom: 1rem;
     cursor: pointer;
+    width: 300px;
 
     h4{
       font-weight: 500;
@@ -119,7 +133,12 @@
       color: var(--grey-color);
       margin-top: 5px;
     }
-  }
+
+    @media screen and (max-width: 450px) {
+      margin-right: 1rem;
+      width: 150px;
+    }
+  }  
 }
 
 .app__skills-exp-year{
@@ -130,8 +149,13 @@
     color: var(--secondary-color)
   }
 
+  @media screen and (max-width: 850px) {
+    margin: 0rem 4.5rem;
+  }
+
   @media screen and (max-width: 450px) {
     margin-right: 1rem;
+  
   }
 }
 

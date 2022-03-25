@@ -17,6 +17,10 @@
 
   display: flex;
   flex-direction: row;
+
+  @media screen and (max-width: 900px) {
+  min-height: unset;
+  }
 }
 
 .app__flex {
